@@ -1,0 +1,62 @@
+﻿@model List<Entities.Customers>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+            <div class="card-body">
+                <a href="/Customer/CustomerAdd" class="btn btn-success pb-4">EKLE</a>
+                <table class="table table-stripe table-bordered pt-5">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Tc</th>
+                            <th scope="col">Adı</th>
+                            <th scope="col">Soyadı</th>
+                            <th scope="col">Telefon</th>
+                            <th scope="col">#İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var custumers in Model)
+                        {
+                            <tr>
+
+
+                                <td scope="row">@custumers.Id</td>
+                                <td>@custumers.Tc</td>
+                                <td>@custumers.Name</td>
+                                <td>@custumers.Surname</td>
+                                <td>@custumers.Telefone</td>
+                                <td>
+                                    <a class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">SİL</a>
+                                    <a href="/Customer/CustomerDetail/@custumers.Id" class="btn btn-primary">DETAY</a>
+                                    <a href="/Customer/CustomerFind/@custumers.Id" class="btn btn-success">GÜNCELLE</a>
+                                </td>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5> <span class="badge badge-success">BasicCrm Mesajı</span></h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <h5 class="modal-title" id="exampleModalLabel"> @custumers.Name @custumers.Surname kişisini silmek istiyormusunuz?</h5>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">VAZGEÇ</button>
+                                                <a href="/Customer/CustomerDelete/@custumers.Id" class="btn btn-danger">SİL</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>

@@ -1,0 +1,44 @@
+﻿@model Entities.Customers
+@{
+    ViewData["Title"] = "CustomerDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container m-5">
+    <div class="row">
+        <div class="col-9">
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">T.C</th>
+                        <td>@Model.Tc</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">AD</th>
+                        <td>@Model.Name</td>
+                       
+                    </tr>
+                    <tr>
+                        <th scope="row">SOYAD</th>
+                        <td>@Model.Surname</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">TELEFON</th>
+                        <td>@Model.Telefone</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ADRES</th>
+                        <td>@Model.Adress</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ŞEHİR</th>
+                        <td>@Model.City</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
